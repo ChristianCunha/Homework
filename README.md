@@ -21,15 +21,15 @@ The calculations can be verified through the link [here](https://www.calkoo.com/
 
 ## Get Started
 
-Homework.sln                 <---- Solution file
-
-Homework.Api                 <---- Folder with presentation layler
-Homework.Application         <---- Folder with business layler
-Homework.Domain              <---- Folder with domain layler
-
-Homework.Api.Tests           <---- Folder with presentation layler tests
-Homework.Application.Tests   <---- Folder with business layler tests
-Homework.Domain.Tests        <---- Folder with domain layler tests
+| File or Folder             | Description                               |
+|----------------------------|-------------------------------------------|
+| Homework.sln               | Solution file                             |
+| Homework.Api               | Folder with presentation layler           |
+| Homework.Application       | Folder with business layler               |
+| Homework.Domain            | Folder with domain layler                 |
+| Homework.Api.Tests         | Folder with presentation layler tests     |
+| Homework.Application.Tests | Folder with business layler tests         |
+| Homework.Domain.Tests      | Folder with domain layler tests           |
 
 ## Solution - Single API
 
@@ -39,25 +39,25 @@ Homework.Domain.Tests        <---- Folder with domain layler tests
 public ActionResult<PurchaseResponse> Calculate([FromQuery] PurchaseRequest request)
 ```
 
-## Brainstorm: possible different approach for a full solution with data storage [Not Implemented]
+### Brainstorm: possible different approach for a full solution with data storage [Not Implemented]
 
 For the replication of the case presented in the [link](https://www.calkoo.com/en/vat-calculator) we would have a different approach with three APIs described below.
 
-# CountryController
+CountryController
 ```csharp
 [HttpGet]
 [Route("countries")]
 public async Task<ActionResult<IEnumerable<CountryResponse>>> GetCountries()
 ```
 
-# VatRatesController
+VatRateController
 ```csharp
 [HttpGet]
 [Route("vatrates/{id}")]
 public async Task<ActionResult<IEnumerable<VatRateResponse>>> GetVatRatesById(Guid id)
 ```
 
-# PurchaseController
+PurchaseController
 ```csharp
 [HttpGet]
 [Route("calculate")]
